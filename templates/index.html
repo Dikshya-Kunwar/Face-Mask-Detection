@@ -5,6 +5,25 @@
   </head>
   <body>
   <h1>Webcam stream</h1>
+
+
+  <button onclick="openCamera()">Open Camera</button>
+  <button onclick="stopCamera()">Stop Camera</button>
+
   <img id="myVideo" src="/video">
+
+  <script>
+  function openCamera() {
+    fetch('/video');
+    document.getElementById("myVideo").src = "/video?t=" + new Date().getTime();
+  }
+  </script>
+  
+  <script>
+  function stopCamera() {
+    fetch('/stop');
+    document.getElementById("myVideo").src = "";
+  }
+</script>
   </body>
 </html>
